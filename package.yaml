@@ -1,0 +1,39 @@
+name:                countwords-conduit
+version:             0.1.0.0
+github:              "kleczkowski/countwords-conduit"
+license:             MIT
+author:              "Konrad Kleczkowski"
+maintainer:          "Konrad Kleczkowski <konrad.kleczkowski@gmail.com>"
+copyright:           "2021 Konrad Kleczkowski"
+
+extra-source-files:
+- README.md
+
+synopsis:            Counting words using Conduit streaming library
+category:            Stream, Text, Data
+description:         Please see the README on GitHub at <https://github.com/githubuser/countwords-conduit#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- bytestring
+- containers
+- conduit
+
+library:
+  source-dirs: src
+
+executables:
+  wc-conduit:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+      - countwords-conduit
+
+benchmarks:
+  countwords-conduit-benchmark:
+    main: Main.hs
+    source-dirs: bench
+    dependencies:
+      - countwords-conduit
+      - criterion
